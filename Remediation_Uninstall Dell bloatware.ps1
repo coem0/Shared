@@ -122,7 +122,7 @@ $UninstallPrograms = @(
     "Dell Display Manager 2.2"
     "Dell Display Manager 2.3"
     "Dell Universal Receiver Control Panel"
-    "Dell PremierColor"
+    "PortraitDisplays.DellPremierColor"
     
     # Add more apps here if needed:
     # "AppName"
