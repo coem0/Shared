@@ -97,13 +97,13 @@ $UninstallPrograms = @(
     "Dell Optimizer Core"
     "DellInc.PartnerPromo"
     "DellInc.DellOptimizer"
-    "DellInc.DellCommandUpdate"
+    #"DellInc.DellCommandUpdate"
     "DellInc.DellPowerManager"
     "DellInc.DellDigitalDelivery"
     #"DellInc.DellSupportAssistforPCs"
     #"Dell Command | Update"
-    "Dell Command | Update for Windows Universal"
-    "Dell Command | Update for Windows 10"
+    #"Dell Command | Update for Windows Universal"
+    #"Dell Command | Update for Windows 10"
     "Dell Command | Power Manager"
     "Dell Digital Delivery Service"
     "Dell Digital Delivery"
@@ -122,6 +122,7 @@ $UninstallPrograms = @(
     "Dell Display Manager 2.2"
     "Dell Display Manager 2.3"
     "Dell Universal Receiver Control Panel"
+    "Dell PremierColor"
     
     # Add more apps here if needed:
     # "AppName"
@@ -269,40 +270,40 @@ catch {
 }
 
 # Dell SupportAssist Remediation
-try {
-    $dellSA = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall -ErrorAction SilentlyContinue | 
-              Get-ItemProperty | Where-Object { $_.DisplayName -match "Dell SupportAssist Remediation" }
-    
-    foreach ($sa in $dellSA) {
-        if ($sa.QuietUninstallString) {
-            cmd.exe /c $sa.QuietUninstallString
-            Write-Output "Uninstalled Dell SupportAssist Remediation"
-            $successCount++
-        }
-    }
-}
-catch {
-    Write-Warning "Failed to uninstall Dell SupportAssist Remediation: $_"
-    $failCount++
-}
+#try {
+#    $dellSA = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall -ErrorAction SilentlyContinue | 
+#              Get-ItemProperty | Where-Object { $_.DisplayName -match "Dell SupportAssist Remediation" }
+#    
+#    foreach ($sa in $dellSA) {
+#        if ($sa.QuietUninstallString) {
+#            cmd.exe /c $sa.QuietUninstallString
+#            Write-Output "Uninstalled Dell SupportAssist Remediation"
+#            $successCount++
+#        }
+#    }
+#}
+#catch {
+#    Write-Warning "Failed to uninstall Dell SupportAssist Remediation: $_"
+#    $failCount++
+#}
 
 # Dell SupportAssist OS Recovery Plugin
-try {
-    $dellPlugin = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall -ErrorAction SilentlyContinue | 
-                  Get-ItemProperty | Where-Object { $_.DisplayName -match "Dell SupportAssist OS Recovery Plugin for Dell Update" }
-    
-    foreach ($plugin in $dellPlugin) {
-        if ($plugin.QuietUninstallString) {
-            cmd.exe /c $plugin.QuietUninstallString
-            Write-Output "Uninstalled Dell SupportAssist OS Recovery Plugin"
-            $successCount++
-        }
-    }
-}
-catch {
-    Write-Warning "Failed to uninstall Dell SupportAssist OS Recovery Plugin: $_"
-    $failCount++
-}
+#try {
+#    $dellPlugin = Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall -ErrorAction SilentlyContinue | 
+#                  Get-ItemProperty | Where-Object { $_.DisplayName -match "Dell SupportAssist OS Recovery Plugin for Dell Update" }
+#    
+#    foreach ($plugin in $dellPlugin) {
+#        if ($plugin.QuietUninstallString) {
+#            cmd.exe /c $plugin.QuietUninstallString
+#            Write-Output "Uninstalled Dell SupportAssist OS Recovery Plugin"
+#            $successCount++
+#        }
+#    }
+#}
+#catch {
+#    Write-Warning "Failed to uninstall Dell SupportAssist OS Recovery Plugin: $_"
+#    $failCount++
+#}
 
 # Dell Display Manager
 try {
